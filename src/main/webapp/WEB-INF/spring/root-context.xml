@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- Camera camera = new Camera() -->
+	<bean class="com.iu.lhj2.mobile.Camera" id="camera">
+		<!-- Camera camera = new Camera(100, "5") -->
+		<!-- <constructor-arg index="0" value="100"></constructor-arg>
+		<constructor-arg index="1" value="5"></constructor-arg> -->
+		
+		<!-- type으로 주입 -->
+		<!-- <constructor-arg type="java.lang.String" value="3"></constructor-arg>
+		<constructor-arg type="int" value="200"></constructor-arg> -->
+		
+		<!-- 변수명으로 주입 -->
+		<constructor-arg name="pixel" value="300"></constructor-arg>
+		<constructor-arg name="count" value="5"></constructor-arg>
+	</bean>
+	
+	<!-- Wifi wifi = new Wifi() -->
+	<bean class="com.iu.lhj2.mobile.Wifi" id="wifi">
+		<!-- wifi.serKind("5G") -->
+		<property name="kind" value="5G"></property>
+		<property name="company" value="Apple"></property>
+	</bean>
+	
+	<!-- Phone phone = new Phone(), @Component -->	
+	<bean class="com.iu.lhj2.mobile.Phone" id="phone" init-method="init" destroy-method="destroy">
+		<!-- phone.setCamera(camera) -->
+		<!-- <property name="camera" ref="camera"></property> -->
+	
+		<!-- phone.setWifi(wifi) -->
+		<!-- <property name="wifi" ref="wifi"></property> -->
+		
+		<constructor-arg index="0" ref="camera"></constructor-arg>
+		<property name="wifi" ref="wifi"></property>
+	</bean>
+	
+</beans>
