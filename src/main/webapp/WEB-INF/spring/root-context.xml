@@ -4,6 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- <import resource="classpath:sample-context.xml"/> -->
+	<!-- <import resource="/WEB-INF/spring/sample-context.xml"/>  -->
+	<!-- <import resource="classpath:*-context.xml"/> -->
+		<!-- <import resource="classpath:sample-context.xml"/>
+		<import resource="classpath:*-context.xml"/>
+		<import resource="/WEB-INF/spring/sample-context.xml"/>
+		<import resource="/WEB-INF/spring/*-context.xml"/>  -->
 	
 	<!-- Camera camera = new Camera() -->
 	<bean class="com.iu.lhj2.mobile.Camera" id="camera">
